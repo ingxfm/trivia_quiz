@@ -15,6 +15,10 @@ class QuizBrain:
         return answer
 
     def correct_answer(self, answer_param):
+        # here we substract 1 from self.question_number, because that attribute started on zero, 
+        # and was increased by 1 when the method next_question was called. Because lists are indexed 
+        # from zero, we need to move back the attribute to select the correct question
+        # we add 1 in the first place because we want to print a question number starting from 1
         if self.question_list[self.question_number - 1].ans.lower() == answer_param.lower():
             self.score += 1
             print(f"That\'s right!")
